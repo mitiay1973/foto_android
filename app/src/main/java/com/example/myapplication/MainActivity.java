@@ -113,6 +113,7 @@ private  void Del()
                         intent.putExtra("base",BaseName.getText().toString());
                         intent.putExtra("Gposition",GeographyPosition.getText().toString());
                         intent.putExtra("Number",NumberOfParse.getText().toString());
+                        intent.putExtra("Image",Img);
                         startActivity(intent);
                     }
                 });

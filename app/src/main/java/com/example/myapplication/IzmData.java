@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class IzmData extends AppCompatActivity {
     TextView BaseNameIzm;
     TextView GeografPositionIzm;
     TextView NumberOfPartsIzm;
+    ImageView imageView;
     String Img="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +42,33 @@ public class IzmData extends AppCompatActivity {
         BaseNameIzm = findViewById(R.id.BaseNameIzm);
         GeografPositionIzm = findViewById(R.id.GeografPositionIzm);
         NumberOfPartsIzm = findViewById(R.id.NumberOfPartsIzm);
+        imageView=findViewById(R.id.imageIzm);
         Intent intent = getIntent();
         String Base = intent.getStringExtra("base");
         String Gposition=intent.getStringExtra("Gposition");
         String Number=intent.getStringExtra("Number");
+        String Image=intent.getStringExtra("Image");
         BaseNameIzm.setText(Base);
         GeografPositionIzm.setText(Gposition);
         NumberOfPartsIzm.setText(Number);
+        imageView.setImageBitmap(getImgBitmap(Image));
     }
     public void onClickChooseImage(View view)
     {
         getImage();
 
     }
-
+    private Bitmap getImgBitmap(String encodedImg) {
+        if (encodedImg != null && !encodedImg.equals("null")) {
+            byte[] bytes = new byte[0];
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                bytes = Base64.getDecoder().decode(encodedImg);
+            }
+            return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        }
+        return BitmapFactory.decodeResource(IzmData.this.getResources(),
+                R.drawable.no_photo);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
