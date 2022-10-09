@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configurationNextButton();
+        configurationNextButton1();
         Del();
     }
 private  void Del()
@@ -79,7 +80,15 @@ private  void Del()
             }
         });
     }
-
+    private void configurationNextButton1() {
+        Button Poiski = (Button) findViewById(R.id.Poiski);
+        Poiski.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Poisk.class));
+            }
+        });
+    }
     public void GetTextFromSql1(View a) {
         TextView BaseId = findViewById(R.id.BaseId);
         TextView BaseName = findViewById(R.id.BaseName);

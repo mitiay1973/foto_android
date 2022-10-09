@@ -80,7 +80,7 @@
         android:id="@+id/addData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#D4F3FF"
         android:text="Добавить данные"
         android:textColor="#4C4C4C"
@@ -93,24 +93,21 @@
         android:id="@+id/IzmData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#D4F3FF"
         android:text="Изменить данные"
         android:textColor="#4C4C4C"
-        app:layout_constraintBottom_toTopOf="@+id/BackList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/delData"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/delData"
         android:layout_width="189dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#D4F3FF"
         android:text="Удалить запись"
         android:textColor="#4C4C4C"
@@ -131,11 +128,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="100dp"
+        android:layout_width="119dp"
         android:layout_height="19dp"
         android:layout_marginTop="43dp"
-        android:layout_marginEnd="40dp"
-        android:text="Имя базы"
+        android:layout_marginEnd="35dp"
+        android:text="Название базы"
         app:layout_constraintEnd_toStartOf="@+id/BaseName"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -182,5 +179,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/NextList"
         app:layout_constraintStart_toEndOf="@+id/BackList" />
+
+    <Button
+        android:id="@+id/Poiski"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#D4F3FF"
+        android:text="Поиск базы"
+        android:textColor="#4C4C4C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IzmData" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
