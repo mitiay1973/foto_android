@@ -52,7 +52,7 @@
         android:id="@+id/NextList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#D4F3FF"
         android:onClick="GetTextFromSql1"
@@ -66,15 +66,13 @@
         android:id="@+id/BackList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#D4F3FF"
         android:onClick="GetTextFromSql"
         android:text="Пред данные"
         android:textColor="#4C4C4C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/NextList"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -172,5 +170,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:foreground="@android:drawable/ic_menu_rotate"
+        android:onClick="GetTextFromSql2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/NextList"
+        app:layout_constraintStart_toEndOf="@+id/BackList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

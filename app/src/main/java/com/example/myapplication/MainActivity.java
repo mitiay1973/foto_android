@@ -192,7 +192,51 @@ private  void Del()
         }
 
     }
+    public void GetTextFromSql2(View a) {
+        TextView BaseId = findViewById(R.id.BaseId);
+        TextView BaseName = findViewById(R.id.BaseName);
+        TextView GeographyPosition = findViewById(R.id.GeografPosition);
+        TextView NumberOfParse = findViewById(R.id.NumberOfParts);
+        ImageView imageView = findViewById(R.id.image);
+        try {
+            ConectionHellper conectionHellper = new ConectionHellper();
+            connection = conectionHellper.connectionClass();
 
+            if (connection != null) {
+
+
+                Button IzmData = (Button) findViewById(R.id.IzmData);
+                IzmData.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(MainActivity.this, IzmData.class);
+                        intent.putExtra("base",BaseName.getText().toString());
+                        intent.putExtra("Gposition",GeographyPosition.getText().toString());
+                        intent.putExtra("Number",NumberOfParse.getText().toString());
+                        startActivity(intent);
+                    }
+                });
+
+                String query7 = "Select * From Base where Base_Id=" + i[0] + "";
+                Statement statement7 = connection.createStatement();
+                ResultSet resultSet7 = statement7.executeQuery(query7);
+                while (resultSet7.next()) {
+                    BaseId.setText(resultSet7.getString(1));
+                    BaseName.setText(resultSet7.getString(2));
+                    GeographyPosition.setText(resultSet7.getString(3));
+                    NumberOfParse.setText(resultSet7.getString(4));
+                    Img = (resultSet7.getString(5));
+                    imageView.setImageBitmap(getImgBitmap(Img));
+                }
+            } else {
+                ConnectionResult = "Check Connection";
+            }
+        } catch (Exception ex) {
+
+        }
+
+    }
     private Bitmap getImgBitmap(String encodedImg) {
         if (encodedImg != null && !encodedImg.equals("null")) {
             byte[] bytes = new byte[0];
